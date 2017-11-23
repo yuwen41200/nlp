@@ -28,4 +28,3 @@ if __name__ == '__main__':
         ans = '\t'.join(pos_pattern[m])
         print(m, len(pos_pattern[m]), ans, sep='\t')
         del pos_pattern[m]
-
