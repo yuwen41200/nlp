@@ -95,7 +95,7 @@ def part3():
             for l1 in f1:
                 l2 = f2.readline()
                 outputs.append(l1.strip() + '\t' + l2.strip() + '\n')
-    with open('task1.txt') as f:
+    with open('task1.txt', 'w') as f:
         f.writelines(outputs)
 
 
