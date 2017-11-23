@@ -7,13 +7,13 @@ import jieba
 import jieba.posseg as pseg
 import pprint
 import time
+import zipfile
 
 jieba.set_dictionary('dict.txt.big')
 jieba.enable_parallel(4)
 pp = pprint.PrettyPrinter(indent=4)
 
 
-# noinspection PyShadowingNames
 def crawler(title):
     ost = OpenSubtitles()
     _ = ost.login("doctest", 'doctest')
@@ -29,7 +29,6 @@ def crawler(title):
     print(title, link, sep='\t', flush=True)
 
 
-# noinspection PyShadowingNames
 def parser(filename):
     with open(filename) as f:
         state = 1
@@ -45,10 +44,30 @@ def parser(filename):
                 state += 1
 
 
-if __name__ == '__main__':
+def counter(filename):
+    with zipfile.ZipFile(filename, 'r') as z:
+        print(z.namelist())
+        # z.extractall('temp')
+
+
+def part1():
     with open('task1.csv') as f:
         for line in f:
             title = line.split('\t')[0]
             crawler(title)
             time.sleep(10)
-    # parser('Cape.No.7.2008.BluRay.720p.x264.AC3-CMCT.srt')
+
+
+def part2():
+    path = r'~/Downloads/'
+    with open('task1map.txt') as f:
+        for line in f:
+            filename = path + line.strip()
+            filename = filename.replace(r'(', r'\(')
+            filename = filename.replace(r')', r'\)')
+            counter(filename)
+            break
+
+
+if __name__ == '__main__':
+    part2()
