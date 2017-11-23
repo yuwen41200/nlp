@@ -53,7 +53,7 @@ def counter(filename):
                 subtitle_info = i
                 break
         subtitle_file = z.extract(subtitle_info)
-    with open(subtitle_file) as f:
+    with open(subtitle_file, errors='backslashreplace') as f:
         state = 1
         for line in reversed(list(f)):
             if state == 2:
@@ -81,7 +81,11 @@ def part2():
     with open('task1map.txt') as f:
         for line in f:
             filename = os.path.join(path, line.strip())
-            counter(filename)
+            # noinspection PyBroadException
+            try:
+                counter(filename)
+            except:
+                print(filename)
 
 
 if __name__ == '__main__':
