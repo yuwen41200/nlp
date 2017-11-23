@@ -6,6 +6,7 @@ import webbrowser
 import jieba
 import jieba.posseg as pseg
 import pprint
+import time
 
 jieba.set_dictionary('dict.txt.big')
 jieba.enable_parallel(4)
@@ -45,9 +46,9 @@ def parser(filename):
 
 
 if __name__ == '__main__':
-    # manually removed the first line in movie.txt
-    with open('movie.txt') as f:
+    with open('task1.csv') as f:
         for line in f:
             title = line.split('\t')[0]
             crawler(title)
+            time.sleep(10)
     # parser('Cape.No.7.2008.BluRay.720p.x264.AC3-CMCT.srt')
