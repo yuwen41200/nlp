@@ -88,5 +88,16 @@ def part2():
                 print(filename)
 
 
+def part3():
+    outputs = []
+    with open('task1.txt') as f1:
+        with open('task1p2.txt') as f2:
+            for l1 in f1:
+                l2 = f2.readline()
+                outputs.append(l1.strip() + '\t' + l2.strip() + '\n')
+    with open('task1.txt') as f:
+        f.writelines(outputs)
+
+
 if __name__ == '__main__':
-    part2()
+    part3()
