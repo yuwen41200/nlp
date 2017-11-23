@@ -5,11 +5,11 @@ star.wars.episode.iii.revenge.of.the.sith.(2005).zht.1cd.(6195538).zip
 star.wars.episode.v.the.empire.strikes.back.(1980).zht.1cd.(5965823).zip
 star.wars.episode.vi.return.of.the.jedi.(1983).zht.1cd.(5965821).zip
 star.wars.the.force.awakens.(2015).zht.1cd.(6609836).zip
-star.wars.the.clone.wars.s02.e08.brain.invaders.(2009).zht.1cd.(6081637).zip
+star.wars.the.clone.wars.(2008).zht.1cd.(6081595).zip
 star.wars.the.clone.wars.s06.e13.sacrifice.(2014).zht.1cd.(6081705).zip
+star.wars.the.clone.wars.s02.e21.r2.come.home.(2010).zht.1cd.(6081650).zip
+star.wars.the.clone.wars.s02.e08.brain.invaders.(2009).zht.1cd.(6081637).zip
 star.wars.the.clone.wars.s03.e01.clone.cadets.(2010).zht.1cd.(6081658).zip
-star.wars.the.clone.wars.s02.e08.brain.invaders.(2009).zht.1cd.(6081637).zip.3
-star.wars.the.clone.wars.s02.e08.brain.invaders.(2009).zht.1cd.(6081637).zip.2
 star.wars.the.clone.wars.s02.e01.holocron.heist.(2009).zht.1cd.(6081630).zip
 star.wars.the.clone.wars.s01.e09.cloak.of.darkness.(2008).zht.1cd.(6081606).zip
 star.wars.the.clone.wars.s01.e01.ambush.(2008).zht.1cd.(6081598).zip
@@ -60,7 +60,7 @@ star.wars.the.clone.wars.s03.e17.ghosts.of.mortis.(2011).zht.1cd.(6081674).zip
 star.wars.the.clone.wars.s01.e02.rising.malevolence.(2008).zht.1cd.(6081599).zip
 star.wars.the.clone.wars.s02.e04.senate.spy.(2009).zht.1cd.(6081633).zip
 star.wars.the.clone.wars.s03.e03.supply.lines.(2010).zht.1cd.(6081660).zip
-star.wars.the.clone.wars.(2008).zht.1cd.(6081595).zip
+star.wars.the.clone.wars.s01.e03.shadow.of.malevolence.(2008).zht.1cd.(6081600).zip
 star.wars.the.clone.wars.s02.e11.lightsaber.lost.(2010).zht.1cd.(6081640).zip
 star.wars.the.clone.wars.s02.e17.bounty.hunters.(2010).zht.1cd.(6081646).zip
 star.wars.the.clone.wars.s03.e04.sphere.of.influence.(2010).zht.1cd.(6081661).zip
@@ -68,8 +68,8 @@ star.wars.the.clone.wars.s03.e15.overlords.(2011).zht.1cd.(6081672).zip
 star.wars.the.clone.wars.s02.e10.the.deserter.(2010).zht.1cd.(6081639).zip
 star.wars.the.clone.wars.s02.e18.the.zillo.beast.(2010).zht.1cd.(6081647).zip
 star.wars.the.clone.wars.s03.e06.the.academy.(2010).zht.1cd.(6081663).zip
-star.wars.the.clone.wars.s03.e12.nightsisters.(2011).zht.1cd.(6081669).zip
 star.wars.the.clone.wars.s03.e07.assassin.(2010).zht.1cd.(6081664).zip
+star.wars.the.clone.wars.s03.e12.nightsisters.(2011).zht.1cd.(6081669).zip
 star.wars.the.clone.wars.s03.e21.padawan.lost.(2011).zht.1cd.(6081678).zip
 star.wars.the.clone.wars.s03.e09.hunt.for.ziro.(2010).zht.1cd.(6081666).zip
 star.wars.the.clone.wars.s03.e13.monster.(2011).zht.1cd.(6081670).zip
