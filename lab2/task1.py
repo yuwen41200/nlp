@@ -8,6 +8,7 @@ import jieba.posseg as pseg
 import pprint
 import time
 import zipfile
+import os
 
 jieba.set_dictionary('dict.txt.big')
 jieba.enable_parallel(4)
@@ -45,9 +46,26 @@ def parser(filename):
 
 
 def counter(filename):
-    with zipfile.ZipFile(filename, 'r') as z:
-        print(z.namelist())
-        # z.extractall('temp')
+    with zipfile.ZipFile(filename) as z:
+        subtitle_info = None
+        for i in z.infolist():
+            if i.filename.endswith('.srt'):
+                subtitle_info = i
+                break
+        subtitle_file = z.extract(subtitle_info)
+    with open(subtitle_file) as f:
+        state = 1
+        for line in reversed(list(f)):
+            if state == 2:
+                print(line.strip())
+                state = 3
+                continue
+            if state == 3:
+                assert line.strip() == ''
+                break
+            if '-->' in line:
+                state = 2
+    os.unlink(subtitle_file)
 
 
 def part1():
@@ -59,14 +77,11 @@ def part1():
 
 
 def part2():
-    path = r'~/Downloads/'
+    path = r'/Users/ywpu/Downloads'
     with open('task1map.txt') as f:
         for line in f:
-            filename = path + line.strip()
-            filename = filename.replace(r'(', r'\(')
-            filename = filename.replace(r')', r'\)')
+            filename = os.path.join(path, line.strip())
             counter(filename)
-            break
 
 
 if __name__ == '__main__':
