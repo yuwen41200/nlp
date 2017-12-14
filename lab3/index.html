@@ -12,64 +12,64 @@
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script>
 		var CURRENT_NO = -1;
-		var countdownnumber=3;
-		var countdownid,x;
-		function initial(){
-		  document.getElementById("nb").style.display  ='none';
-		  clearInterval(countdownid);
-    	  countdownnumber=3;
-		  x=document.getElementById("countdown");
-		  x.style.display = 'block';
-		  x.innerHTML="Wait for "+countdownnumber+" seconds to continue.";
-		  countdownnumber--;
-		  countdownid=window.setInterval(countdownfunc,1000);
+		var countdownnumber = 3;
+		var countdownid, x;
+		function initial() {
+            document.getElementById("nb").style.display = 'none';
+            clearInterval(countdownid);
+			countdownnumber = 3;
+			x = document.getElementById("countdown");
+			x.style.display = 'block';
+			x.innerHTML = "Wait for "+countdownnumber+" seconds to continue.";
+			countdownnumber--;
+			countdownid = window.setInterval(countdownfunc, 1000);
 		}
-		function countdownfunc(){ 
-		  x.innerHTML="Wait for "+countdownnumber+" seconds to continue.";
-		  if (countdownnumber==0){
-		    clearInterval(countdownid);
-		    x.style.display = 'none';
-		    document.getElementById("nb").style.display  ='block';
-		  }
-		  countdownnumber--;
+		function countdownfunc() {
+			x.innerHTML = "Wait for "+countdownnumber+" seconds to continue.";
+			if (countdownnumber === 0) {
+				clearInterval(countdownid);
+				x.style.display = 'none';
+				document.getElementById("nb").style.display = 'block';
+			}
+			countdownnumber--;
 		}
-		function changeImg(){
-			document.getElementById("movieImg").src="movie_"+(CURRENT_NO+1)+".jpg";
+		function changeImg() {
+			document.getElementById("movieImg").src = "movie_"+(CURRENT_NO+1)+".jpg";
 		}
 		function gup(name) {
-		    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-		    var regexS = "[\\?&]"+name+"=([^&#]*)";
-		    var regex = new RegExp(regexS);
-		    var results = regex.exec(window.location.href);
+			name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+			var regexS = "[\\?&]"+name+"=([^&#]*)";
+			var regex = new RegExp(regexS);
+			var results = regex.exec(window.location.href);
 
-		    if(results == null)
-			return "";
-		    else
-			return unescape(results[1]);
+			if(results == null)
+				return "";
+			else
+				return unescape(results[1]);
 		}
 		function submitListener() {
-		    var turkSubmitTo= gup("turkSubmitTo")
+			var turkSubmitTo = gup("turkSubmitTo");
 
-		    $("form").attr('target', 'blank');                          
-		    $("form").attr('method', 'POST');
-		    $("form").attr('action', turkSubmitTo);
-		    $("form").submit();
+			$("form").attr('target', 'blank')
+			         .attr('method', 'POST')
+			         .attr('action', turkSubmitTo)
+			         .submit();
 		}
-		
+
 		function sendForm() {
 			submitListener();
 		}
 		function goNext() {
 			//  check once after entering the html page.
-            		if(CURRENT_NO == -1) {
-                		var assignmentIdis = gup("assignmentId")
-                
-				if(assignmentIdis == "ASSIGNMENT_ID_NOT_AVAILABLE")
-				    window.location.href = "HelloWorld.html"
+			if (CURRENT_NO === -1) {
+				var assignmentIdis = gup("assignmentId");
+
+				if (assignmentIdis === "ASSIGNMENT_ID_NOT_AVAILABLE")
+					window.location.href = "HelloWorld.html";
 				else
-				    document.getElementById("aId").setAttribute('value', assignmentIdis);
-			    }
-			
+					document.getElementById("aId").setAttribute('value', assignmentIdis);
+			}
+
 			var els = document.getElementsByClassName("well");
 			[].forEach.call(els, function (el) {
 				el.style.display = "none";
@@ -85,7 +85,6 @@
 			els[CURRENT_NO].style.display = "block";
 			changeImg();
 			initial();
-			
 		}
 	</script>
 	<title>電影名稱評分</title>
@@ -107,7 +106,7 @@
 					<div class="well well-sm">
 						<dl class="dl-horizontal">
 							<dt>電影名稱（中文）：</dt>
-							<dd>海角七號-1</dd>
+							<dd>海角七號</dd>
 							<dt>電影名稱（英文）：</dt>
 							<dd>Cape No. 7</dd>
 							<dt>電影敘述：</dt>
@@ -233,4 +232,3 @@
 	</footer>
 </body>
 </html>
-
