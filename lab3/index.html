@@ -36,12 +36,20 @@
 			height:300px;
 		}
 		dt,dd{
-			font-style: Microsoft JhongHei;
+			/*font-style: Microsoft JhongHei;*/
 			font-size: 18px;
 			padding-top: 5px;
 		}
+		#pb {
+			float: left;
+			margin-left: 10px;
+			height: 40px;
+			width: 100px;
+			font-size: 16px;
+		}
 		#nb{
-			margin-left: 350px;
+			float: right;
+			margin-right: 50px;
 			height:40px;
 			width: 100px;
 			font-size: 16px;
@@ -56,11 +64,11 @@
 			margin-left: 200px;
 			margin-top:00px;
 			font-size: 18px;
-			font-style: Microsoft JhongHei;
+			/*font-style: Microsoft JhongHei;*/
 			color:#565656;
 		}
 		p{
-			font-style: Microsoft JhongHei;
+			/*font-style: Microsoft JhongHei;*/
 			line-height: 28px;
 			font-size: 16px;
 		}
@@ -106,7 +114,7 @@
 			var regexS = "[\\?&]"+name+"=([^&#]*)";
 			var regex = new RegExp(regexS);
 			var results = regex.exec(window.location.href);
-			if(results == null)
+			if (results == null)
 				return "";
 			else
 				return unescape(results[1]);
@@ -122,7 +130,7 @@
 			submitListener();
 		}
 		function goNext() {
-			console.log($(window).height()/11)
+			console.log($(window).height()/11);
 			document.getElementById("s1").style.paddingTop = $(window).height()/9+"px";
 
 			//  check once after entering the html page.
@@ -143,8 +151,14 @@
 				el.style.display = "none";
 			});
 			CURRENT_NO++;
-			if (CURRENT_NO === els.length-1) {
+			console.log(CURRENT_NO);
+			if (CURRENT_NO >= 2)
+				document.getElementById("pb").style.display = "block";
+			else
+				document.getElementById("pb").style.display = "none";
+			if (CURRENT_NO === els.length - 1) {
 				sendForm();
+				document.getElementById("pb").style.display = "none";
 				document.getElementById("nb").style.display = "none";
 				document.getElementById("movieImg").style.display = "none";
 				els[CURRENT_NO].style.display = "block";
@@ -153,7 +167,7 @@
 			else if (CURRENT_NO === els.length - 2) {
 				document.getElementById("nb").innerHTML = "送出"
 			}
-			else if (CURRENT_NO === 1) {
+			else if (CURRENT_NO >= 1) {
 				document.getElementById("nb").innerHTML = "下一部"
 			}
 			els[CURRENT_NO].style.display = "block";
@@ -161,15 +175,6 @@
 			if (CURRENT_NO !== 0)
 				initial();
 		}
-
-		
-		
-		
-		
-		
-		
-		
-
 	</script>
 	<title>電影名稱評分</title>
 </head>
@@ -322,6 +327,9 @@
 					</div>
 				</form>
 
+				<button type="button" id="pb" class="btn btn-primary btn-sm" onclick="CURRENT_NO-=2; goNext()">
+					上一部
+				</button>
 				<button type="button" id="nb" class="btn btn-primary btn-sm" onclick="goNext()">
 					開始作答
 				</button>
