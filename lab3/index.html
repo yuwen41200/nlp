@@ -21,12 +21,12 @@
 			countdownnumber = 3;
 			x = document.getElementById("countdown");
 			x.style.display = 'block';
-			x.innerHTML = "Wait for "+countdownnumber+" seconds to continue.";
+			x.innerHTML = "Wait for " + countdownnumber + " seconds to continue.";
 			countdownnumber--;
 			countdownid = window.setInterval(countdownfunc, 1000);
 		}
 		function countdownfunc() {
-			x.innerHTML = "Wait for "+countdownnumber+" seconds to continue.";
+			x.innerHTML = "Wait for " + countdownnumber + " seconds to continue.";
 			if (countdownnumber === 0) {
 				clearInterval(countdownid);
 				x.style.display = 'none';
@@ -35,7 +35,15 @@
 			countdownnumber--;
 		}
 		function changeImg() {
-			document.getElementById("movieImg").src = "movie_"+(CURRENT_NO+1)+".jpg";
+			if (CURRENT_NO === 0) {
+				document.getElementById("leftTitle").style.display = "block";
+				document.getElementById("movieImg").style.visibility = "hidden";
+			}
+			else {
+				document.getElementById("leftTitle").style.display = "none";
+				document.getElementById("movieImg").style.visibility = "visible";
+				document.getElementById("movieImg").src = "movie_" + CURRENT_NO + ".jpg";
+			}
 		}
 		function gup(name) {
 			name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
@@ -83,9 +91,13 @@
 			else if (CURRENT_NO === els.length - 1) {
 				document.getElementById("nb").innerHTML = "送出"
 			}
+			else if (CURRENT_NO === 1) {
+				document.getElementById("nb").innerHTML = "下一部"
+			}
 			els[CURRENT_NO].style.display = "block";
 			changeImg();
-			initial();
+			if (CURRENT_NO !== 0)
+				initial();
 		}
 	</script>
 	<title>電影名稱評分</title>
@@ -99,11 +111,21 @@
 	<section>
 		<div class="row">
 			<article class="col-md-4">
-				<img id="movieImg" src="movie_1.jpg" width="100%">
+				<h1 id="leftTitle" align="right">說明</h1>
+				<img id="movieImg" src="movie_1.jpg" style="max-width: 100%; float: right;">
 			</article>
 			<article class="col-md-8">
 				<form>
 					<input type="hidden" name="assignmentId" id="aId">
+					<div class="well well-sm">
+						<p>您好，我們是交通大學自然語言處理課程的學生，<br>
+						我們需要請您評估電腦生成的電影名稱，<br>
+						給予一個分數，一分是最低，五分是最高。<br>
+						請綜合以下三個因素給分：符合主題、辭意精確、引人好奇</p>
+						<p>注意：您必須至少花三秒的時間判斷，然後才可以送交答案。</p>
+						<p>總共有四題，請耐心作答，<br>
+						感謝您的協助，謝謝！</p>
+					</div>
 					<div class="well well-sm">
 						<dl class="dl-horizontal">
 							<dt>電影名稱（中文）：</dt>
@@ -121,7 +143,7 @@
 							<dt>分數：</dt>
 							<dd>
 								<label>
-									<select name = "q0">
+									<select name="q0">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -150,7 +172,7 @@
 							<dt>分數：</dt>
 							<dd>
 								<label>
-									<select name = "q1">
+									<select name="q1">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -172,14 +194,14 @@
 							<dd>
 								生就是不停的戰鬥，<br>
 								在還沒有獲得女神青睞時，<br>
-								左手永遠都只是輔助!
+								左手永遠都只是輔助！
 							</dd>
 							<dt>生成電影名稱：</dt>
 							<dd>沈佳宜，我愛妳</dd>
 							<dt>分數：</dt>
 							<dd>
 								<label>
-									<select name = "q2">
+									<select name="q2">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -206,7 +228,7 @@
 							<dt>分數：</dt>
 							<dd>
 								<label>
-									<select name = "q3">
+									<select name="q3">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -220,7 +242,9 @@
 					</div>
 				</form>
 
-				<button type="button" id="nb" class="btn btn-primary btn-sm" onclick="goNext()">下一部</button>
+				<button type="button" id="nb" class="btn btn-primary btn-sm" onclick="goNext()">
+					開始作答
+				</button>
 				<div id="countdown"> </div>
 			</article>
 		</div>
