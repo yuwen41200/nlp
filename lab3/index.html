@@ -37,11 +37,11 @@
 		function changeImg() {
 			if (CURRENT_NO === 0) {
 				document.getElementById("leftTitle").style.display = "block";
-				document.getElementById("movieImg").style.visibility = "hidden";
+				document.getElementById("movieImg").style.display = "none";
 			}
 			else {
 				document.getElementById("leftTitle").style.display = "none";
-				document.getElementById("movieImg").style.visibility = "visible";
+				document.getElementById("movieImg").style.display = "block";
 				document.getElementById("movieImg").src = "movie_" + CURRENT_NO + ".jpg";
 			}
 		}
@@ -73,10 +73,15 @@
 			if (CURRENT_NO === -1) {
 				var assignmentIdis = gup("assignmentId");
 
-				if (assignmentIdis === "ASSIGNMENT_ID_NOT_AVAILABLE")
-					window.location.href = "HelloWorld.html";
-				else
+				if (assignmentIdis === "ASSIGNMENT_ID_NOT_AVAILABLE") {
+					// window.location.href = "HelloWorld.html";
+					var n = document.getElementById("preview");
+					n.style.display = "block";
+					n.previousElementSibling.style.display = "none";
+				}
+				else {
 					document.getElementById("aId").setAttribute('value', assignmentIdis);
+				}
 			}
 
 			var els = document.getElementsByClassName("well");
@@ -248,6 +253,9 @@
 				<div id="countdown"> </div>
 			</article>
 		</div>
+	</section>
+	<section id="preview" style="display: none;">
+		<h1 align="center">Please accept the HIT.</h1>
 	</section>
 	<section>
 		&nbsp;
