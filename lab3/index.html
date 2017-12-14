@@ -10,9 +10,20 @@
 	</style>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<title>title</title>
+	<script>
+		var CURRENT_NO = -1;
+		function goNext() {
+			var els = document.getElementsByClassName("well");
+			[].forEach.call(els, function (el) {
+				el.style.display = "none";
+			});
+			CURRENT_NO++;
+			els[CURRENT_NO].style.display = "block";
+		}
+	</script>
+	<title>電影名稱評分</title>
 </head>
-<body class="container-fluid">
+<body class="container-fluid" onload="goNext()">
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#">電影名稱評分</a>
@@ -28,7 +39,65 @@
 					<div class="well well-sm">
 						<dl class="dl-horizontal">
 							<dt>電影名稱（中文）：</dt>
-							<dd>海角七號</dd>
+							<dd>海角七號-1</dd>
+							<dt>電影名稱（英文）：</dt>
+							<dd>Cape No. 7</dd>
+							<dt>電影敘述：</dt>
+							<dd>
+								生命，只有一回！<br>
+								夢想，不會只有一次！<br>
+								錯過的愛情，只要肯回頭，還是有找回心靈相印的一天……。
+							</dd>
+							<dt>生成電影名稱：</dt>
+							<dd>友子再見</dd>
+							<dt>分數：</dt>
+							<dd>
+								<label>
+									<select>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+									</select>
+								</label>
+								（分數愈高表示愈好）
+							</dd>
+						</dl>
+					</div>
+					<div class="well well-sm">
+						<dl class="dl-horizontal">
+							<dt>電影名稱（中文）：</dt>
+							<dd>海角七號-2</dd>
+							<dt>電影名稱（英文）：</dt>
+							<dd>Cape No. 7</dd>
+							<dt>電影敘述：</dt>
+							<dd>
+								生命，只有一回！<br>
+								夢想，不會只有一次！<br>
+								錯過的愛情，只要肯回頭，還是有找回心靈相印的一天……。
+							</dd>
+							<dt>生成電影名稱：</dt>
+							<dd>友子再見</dd>
+							<dt>分數：</dt>
+							<dd>
+								<label>
+									<select>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+									</select>
+								</label>
+								（分數愈高表示愈好）
+							</dd>
+						</dl>
+					</div>
+					<div class="well well-sm">
+						<dl class="dl-horizontal">
+							<dt>電影名稱（中文）：</dt>
+							<dd>海角七號-3</dd>
 							<dt>電影名稱（英文）：</dt>
 							<dd>Cape No. 7</dd>
 							<dt>電影敘述：</dt>
@@ -55,7 +124,7 @@
 						</dl>
 					</div>
 				</form>
-				<button type="button" class="btn btn-primary btn-sm">下一部</button>
+				<button type="button" class="btn btn-primary btn-sm" onclick="goNext()">下一部</button>
 			</article>
 		</div>
 	</section>
