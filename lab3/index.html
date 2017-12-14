@@ -2,7 +2,9 @@
 <!--suppress JSUnresolvedLibraryURL -->
 <html>
 <head>
+	<title>電影名稱評分</title>
 	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<style type="text/css">
@@ -18,10 +20,19 @@
 				el.style.display = "none";
 			});
 			CURRENT_NO++;
+			if (CURRENT_NO === els.length) {
+				sendForm();
+				return;
+			}
+			else if (CURRENT_NO === els.length - 1) {
+				document.getElementById("nb").innerHTML = "送出"
+			}
 			els[CURRENT_NO].style.display = "block";
 		}
+		function sendForm() {
+			document.getElementById("form").submit();
+		}
 	</script>
-	<title>電影名稱評分</title>
 </head>
 <body class="container-fluid" onload="goNext()">
 	<nav class="navbar navbar-default navbar-fixed-top">
@@ -35,7 +46,7 @@
 				<img src="movie_1.jpg" width="100%">
 			</article>
 			<article class="col-md-8">
-				<form>
+				<form id="form" method="post" action="https://httpbin.org/post">
 					<div class="well well-sm">
 						<dl class="dl-horizontal">
 							<dt>電影名稱（中文）：</dt>
@@ -124,7 +135,7 @@
 						</dl>
 					</div>
 				</form>
-				<button type="button" class="btn btn-primary btn-sm" onclick="goNext()">下一部</button>
+				<button id="nb" type="button" class="btn btn-primary btn-sm" onclick="goNext()">下一部</button>
 			</article>
 		</div>
 	</section>
