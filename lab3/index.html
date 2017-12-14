@@ -60,6 +60,16 @@
 			submitListener();
 		}
 		function goNext() {
+			//  check once after entering the html page.
+            		if(CURRENT_NO == -1) {
+                		var assignmentIdis = gup("assignmentId")
+                
+				if(assignmentIdis == "ASSIGNMENT_ID_NOT_AVAILABLE")
+				    window.location.href = "HelloWorld.html"
+				else
+				    document.getElementById("aId").setAttribute('value', assignmentIdis);
+			    }
+			
 			var els = document.getElementsByClassName("well");
 			[].forEach.call(els, function (el) {
 				el.style.display = "none";
@@ -93,6 +103,7 @@
 			</article>
 			<article class="col-md-8">
 				<form>
+					<input type="hidden" name="assignmentId" id="aId">
 					<div class="well well-sm">
 						<dl class="dl-horizontal">
 							<dt>電影名稱（中文）：</dt>
@@ -110,7 +121,7 @@
 							<dt>分數：</dt>
 							<dd>
 								<label>
-									<select>
+									<select name = "q0">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -139,7 +150,7 @@
 							<dt>分數：</dt>
 							<dd>
 								<label>
-									<select>
+									<select name = "q1">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -168,7 +179,7 @@
 							<dt>分數：</dt>
 							<dd>
 								<label>
-									<select>
+									<select name = "q2">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -195,7 +206,7 @@
 							<dt>分數：</dt>
 							<dd>
 								<label>
-									<select>
+									<select name = "q3">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
